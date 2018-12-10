@@ -33,10 +33,10 @@ public class Reversi {
             }
             
             Command command = userInput.getInput();
-            int xKord = userInput.getxKord();
-            int yKord = userInput.getyKord();
+            int xCoord = userInput.getxCoord();
+            int yCoord = userInput.getyCoord();
             
-            gameRules.processCommand(command, xKord, yKord);
+            gameRules.processCommand(command, xCoord, yCoord);
             
             
         }

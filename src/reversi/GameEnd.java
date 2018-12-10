@@ -11,9 +11,9 @@ package reversi;
 public class GameEnd {
             
             private Map map; 
-            int quit = 0;
-            int white = 0;
-            int black = 0;
+            private int quit = 0;
+            private int white = 0;
+            private int black = 0;
     
             public GameEnd(Map map){
                 this.map = map;

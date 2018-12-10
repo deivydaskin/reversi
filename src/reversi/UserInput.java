@@ -13,32 +13,32 @@ import java.util.Scanner;
  */
 public class UserInput {
     
-    private Scanner klava = new Scanner(System.in);
+    private Scanner keyboard = new Scanner(System.in);
         
     
-    private int xKord;
-    private int yKord;
+    private int xCoord;
+    private int yCoord;
 
-    public int getxKord() {
-        return xKord;
+    public int getxCoord() {
+        return xCoord;
     }
 
-    public int getyKord() {
-        return yKord;
+    public int getyCoord() {
+        return yCoord;
     }
 
     
     public Command getInput(){
-        String k = klava.nextLine();   
+        String k = keyboard.nextLine();   
         return getCommand(k);
     }
     
     public Command getCommand(String k){           
-            String[] dalys = k.split(" ");
-            xKord = Integer.parseInt(dalys[1])-1;
-            yKord = Integer.parseInt(dalys[0])-1;
+            String[] parts = k.split(" ");
+            xCoord = Integer.parseInt(parts[1])-1;
+            yCoord = Integer.parseInt(parts[0])-1;
 
-            String test = dalys[2];
+            String test = parts[2];
             
             switch(test){
                 case "n":
