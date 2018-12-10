@@ -51,13 +51,7 @@ public class GameRules {
     
     private void flipCoins(int x, int y, int xKord, int yKord){
         
-        int player = Reversi.player;
-        System.out.println(yKord);
-        System.out.println(xKord);
-        
-//        if(map.map[yKord][xKord] != player | map.map[yKord+(1*x)][xKord+(1+y)] == player | map.map[yKord+(1*x)][xKord+(1*y)] == 0){
- //           System.out.println("Neteisingas ejimas");
-  //      }
+        int player = GameRenderer.player;
         
         for (int i = 1; i < map.getHeight(); i++){
             if(map.map[yKord][xKord] != player | map.map[yKord+(1*x)][xKord+(1+y)] == player | map.map[yKord+(1*x)][xKord+(1*y)] == 0){
@@ -73,8 +67,8 @@ public class GameRules {
                         map.map[yKord+(j*x)][xKord+(j*y)] = player;
                     }
                     //Change player
-                    if (player == 1) Reversi.player = 2;
-                        else if (player == 2) Reversi.player = 1;
+                    if (player == 1) GameRenderer.player = 2;
+                        else if (player == 2) GameRenderer.player = 1;
                     
                     break;
                 }

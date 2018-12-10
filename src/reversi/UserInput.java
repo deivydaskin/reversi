@@ -13,9 +13,6 @@ import java.util.Scanner;
  */
 public class UserInput {
     
-    
-    Map map = new Map();
-    
     private Scanner klava = new Scanner(System.in);
         
     

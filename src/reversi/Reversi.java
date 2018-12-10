@@ -11,30 +11,26 @@ package reversi;
 public class Reversi {
 
     /**
+     * @param args
      */  
-    public static int player = 1;
     
     public static void main(String[] args) {
         
         Map map = new Map();    
-
         
-        gameRenderer renderer = new gameRenderer(map);
-        
-        GameRules gameRules = new GameRules(map);
-        
+        GameRenderer renderer = new GameRenderer(map);        
+        GameRules gameRules = new GameRules(map);        
         UserInput userInput = new UserInput();
-        
-        
-        
-        
-
-        
-        
+        GameEnd gameEnd = new GameEnd(map);
         
         while(true){
             
             renderer.render();
+            
+            if(gameEnd.isGameOver()){
+                gameEnd.getWinner();
+                gameEnd.exit();
+            }
             
             Command command = userInput.getInput();
             int xKord = userInput.getxKord();
