@@ -16,16 +16,20 @@ public class Reversi {
     
     public static void main(String[] args) {
         
-        Map map = new Map();
-        
-        
+        Map map = new Map();    
 
         
         gameRenderer renderer = new gameRenderer(map);
         
         GameRules gameRules = new GameRules(map);
-
+        
         UserInput userInput = new UserInput();
+        
+        
+        
+        
+
+        
         
         
         while(true){
@@ -33,11 +37,12 @@ public class Reversi {
             renderer.render();
             
             Command command = userInput.getInput();
+            int xKord = userInput.getxKord();
+            int yKord = userInput.getyKord();
             
-            gameRules.processCommand(command);
+            gameRules.processCommand(command, xKord, yKord);
             
-            if (player == 1) player = 2;
-                else if (player == 2) player = 1;
+            
         }
     }
    

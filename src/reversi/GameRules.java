@@ -10,8 +10,7 @@ package reversi;
  * @author Deivydas
  */
 public class GameRules {
-    UserInput userInput = new UserInput();
-    
+ 
     private Map map;    
     
     public GameRules(Map map){
@@ -19,41 +18,39 @@ public class GameRules {
     }
     
     
-    public void processCommand(Command command) {
+    public void processCommand(Command command, int xKord, int yKord) {
         switch (command){
             case NORTH:
-                flipCoins(-1, 0);
+                flipCoins(-1, 0, xKord, yKord);
                 break;
             case NORTHEAST:
-                flipCoins(-1, 1);
+                flipCoins(-1, 1, xKord, yKord);
                 break;
             case EAST:
-                flipCoins(0, 1);
+                flipCoins(0, 1, xKord, yKord);
                 break;
             case SOUTHEAST:
-                flipCoins(1, 1);
+                flipCoins(1, 1, xKord, yKord);
                 break;
             case SOUTH:
-                flipCoins(1, 0);
+                flipCoins(1, 0, xKord, yKord);
                 break;
             case SOUTHWEST:
-                flipCoins(1, -1);
+                flipCoins(1, -1, xKord, yKord);
                 break;
             case WEST:
-                flipCoins(0, -1);
+                flipCoins(0, -1, xKord, yKord);
                 break;
             case NORTHWEST:
-                flipCoins(-1, -1);
+                flipCoins(-1, -1, xKord, yKord);
                 break;
             default: 
                 break;
         }
     }
     
-    private void flipCoins(int x, int y){
+    private void flipCoins(int x, int y, int xKord, int yKord){
         
-        int yKord = userInput.getyKord();
-        int xKord = userInput.getxKord();
         int player = Reversi.player;
         System.out.println(yKord);
         System.out.println(xKord);
@@ -63,14 +60,23 @@ public class GameRules {
   //      }
         
         for (int i = 1; i < map.getHeight(); i++){
+            if(map.map[yKord][xKord] != player | map.map[yKord+(1*x)][xKord+(1+y)] == player | map.map[yKord+(1*x)][xKord+(1*y)] == 0){
+                System.out.println("Neteisingas ejimas");
+                break;
+            }
             if(map.map[yKord+(i*x)][xKord+(i*y)] != player){
-                if(map.map[yKord+(i*x)+1][xKord+(i*y)-1] == 0){
-                    map.map[yKord+(i*x)+1][xKord+(i*y)-1] = player;
+                if(map.map[yKord+(i*x)+x][xKord+(i*y)+y] == 0){
+                    map.map[yKord+(i*x)+x][xKord+(i*y)+y] = player;
                             
                     //flip coins
                     for(int j = 1; j <= i; j++){
                         map.map[yKord+(j*x)][xKord+(j*y)] = player;
                     }
+                    //Change player
+                    if (player == 1) Reversi.player = 2;
+                        else if (player == 2) Reversi.player = 1;
+                    
+                    break;
                 }
             }
         }

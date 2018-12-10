@@ -26,29 +26,21 @@ public class UserInput {
         return xKord;
     }
 
-    public void setxKord(int xKord, int n) {
-        xKord = n;
-        this.xKord = xKord;
-    }
-
     public int getyKord() {
         return yKord;
     }
 
-    public void setyKord(int yKord, int m) {
-        yKord = m;
-        this.yKord = yKord;
-    }
     
     public Command getInput(){
-        String k = klava.nextLine();        
+        String k = klava.nextLine();   
         return getCommand(k);
     }
     
     public Command getCommand(String k){           
             String[] dalys = k.split(" ");
-            setxKord(1,Integer.parseInt(dalys[1])-1);
-            setyKord(2, Integer.parseInt(dalys[0])-1);
+            xKord = Integer.parseInt(dalys[1])-1;
+            yKord = Integer.parseInt(dalys[0])-1;
+
             String test = dalys[2];
             
             switch(test){
