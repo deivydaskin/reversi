@@ -22,13 +22,14 @@ public class Reversi {
         GameRules gameRules = new GameRules(map);        
         UserInput userInput = new UserInput();
         GameEnd gameEnd = new GameEnd(map);
+        Winner winner = new Winner(map);
         
         while(true){
             
             renderer.render();
             
             if(gameEnd.isGameOver()){
-                gameEnd.getWinner();
+                winner.getWinner();
                 gameEnd.exit();
             }
             

@@ -38,14 +38,14 @@ public class GameEnd {
             
             public void exit(){
                 System.exit(0);
-            } 
-
-            public void getWinner(){          
-                    if(white > black){
-                    System.out.println("Laimejo 1 zaidejas: " + white + " - " + black);  
-                    }
-                    if(black > white){
-                        System.out.println("Laimejo 2 zaidejas: " + black + " - " + white);
-                    }
             }
+
+    public int getWhite() {
+        return white;
+    }
+
+    public int getBlack() {
+        return black;
+    }
+            
 }
